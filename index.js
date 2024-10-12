@@ -4,11 +4,13 @@ let ejs = require('ejs');
 const haikus = require('./haikus.json');
 const port = process.env.PORT || 3000;
 
-app.use(express.static('public'))
+app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-  res.render('index', {haikus: haikus});
+  res.render('index', { haikus: haikus });
 });
 
-app.listen(port);
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
